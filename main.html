@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Dashboard</title>
+</head>
+<body>
+  <h1>Prezzo Bitcoin</h1>
+  <div id="btc-price">Caricamento...</div>
+
+  <script>
+    async function loadPrice() {
+      const res = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=punchy-puff&vs_currencies=eur");
+      const data = await res.json();
+      document.getElementById("btc-price").innerText =
+        "BTC: " + data.bitcoin.eur + " €";
+    }
+    loadPrice();
+  </script>
+</body>
+</html>
